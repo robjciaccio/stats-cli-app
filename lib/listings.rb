@@ -11,6 +11,12 @@ class Scraper
     listing.css('.result-title').css('.hdrlnk').map do |i|
       r << i.text
     end
+      counter = 0
+      i = 0
+      while counter < 25
+        puts "#{counter+=1} #{r[i]}"
+        i+=1
+      end
     binding.pry
 
 
