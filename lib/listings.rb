@@ -4,9 +4,10 @@ require 'open-uri'
 
 class Scraper
 
+
+  def self.apartment_scraper(html)
     listing = []
     price = []
-    html = "https://newyork.craigslist.org/search/aap?query=park+slope&availabilityMode=0"
     page = Nokogiri::HTML(open(html))
     listings = page.css('.rows')
     listings.css('.result-title').css('.hdrlnk').map do |i|
@@ -21,6 +22,7 @@ class Scraper
         puts "#{counter+=1}. #{price[i]} #{listing[i]}"
         i+=1
       end
+    end
     binding.pry
 
 
