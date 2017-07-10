@@ -4,17 +4,21 @@ require 'open-uri'
 
 class Scraper
 
-    r = []
+    listing = []
+    price = []
     html = "https://newyork.craigslist.org/search/aap?query=park+slope&availabilityMode=0"
     page = Nokogiri::HTML(open(html))
-    listing = page.css('.rows')
-    listing.css('.result-title').css('.hdrlnk').map do |i|
-      r << i.text
+    listings = page.css('.rows')
+    listings.css('.result-title').css('.hdrlnk').map do |i|
+      listing << i.text
+    end
+    listings.css('.result-price').map do |p|
+      price << p.text
     end
       counter = 0
       i = 0
       while counter < 25
-        puts "#{counter+=1} #{r[i]}"
+        puts "#{counter+=1}. #{price[i]} #{listing[i]}"
         i+=1
       end
     binding.pry
