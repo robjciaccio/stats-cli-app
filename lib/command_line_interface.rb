@@ -5,7 +5,7 @@ require "./lib/scraper.rb"
 
 
 class CLI
-  
+
   def self.run
     puts "Welcome to your apartment search!\n"
     puts "Please enter the zip code you would like to search in: "
@@ -18,7 +18,7 @@ class CLI
     html = Listing.get_html
     Scraper.apartment_scraper(html)
   end
-  binding.pry
+
 
 #get_info
   #run get info method
@@ -28,7 +28,12 @@ class CLI
 
 #selection
   #return site of selected post
+  def self.new_search
+    Listing.reset_all
+    run
+  end
 
+binding.pry
 
 
 #create_new_search

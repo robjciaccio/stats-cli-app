@@ -24,4 +24,10 @@ attr_accessor :max_price, :zip_code, :bedrooms
     @bedrooms = gets.chomp
   end
 
+  def self.reset_all
+    @zip_code = ""
+    @max_price = ""
+    @bedrooms = ""
+  end
+
 end
