@@ -5,19 +5,13 @@ require "./lib/apartmentsearch.rb"
 
 
 
-# run method
+def run
+  Apartment.get_info
+  current = Listing.new(Apartment.max_price, Apartment.zip_code, Apartment.bedrooms)
+  end
 
-def get_info
-  puts "Welcome to your apartment search!\n"
-  puts "Please enter the zip code you would like to search in: "
-  @zip_code = gets.chomp
-  puts "Please enter your max price range: "
-  @price = gets.chomp
-  puts "Please enter the minimum amount of bedrooms: "
-  @bedrooms = gets.chomp
-end
-
-binding.pry
+#get_info
+  #run get info method
 
 #html method
   #apply zip/rooms/price to html

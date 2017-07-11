@@ -8,7 +8,6 @@ attr_accessor :max_price, :zip_code, :bedrooms
     @zip_code = zip_code
     @bedrooms = bedrooms
     html = "https://newyork.craigslist.org/search/aap?postal=#{zip_code}&max_price=#{max_price}&min_bedrooms=#{bedrooms}&availabilityMode=0"
-    binding.pry
   html
   end
 
