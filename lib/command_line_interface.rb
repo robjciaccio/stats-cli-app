@@ -1,14 +1,24 @@
 require 'Nokogiri'
 require 'pry'
 require "./lib/listings.rb"
-require "./lib/apartmentsearch.rb"
+require "./lib/scraper.rb"
 
 
-
-def run
-  Apartment.get_info
-  current = Listing.new(Apartment.max_price, Apartment.zip_code, Apartment.bedrooms)
+class CLI
+  
+  def self.run
+    puts "Welcome to your apartment search!\n"
+    puts "Please enter the zip code you would like to search in: "
+    zip_code = gets.chomp
+    puts "Please enter your max price range: "
+    max_price = gets.chomp
+    puts "Please enter the minimum amount of bedrooms: "
+    bedrooms = gets.chomp
+    current = Listing.new(max_price, zip_code, bedrooms)
+    html = Listing.get_html
+    Scraper.apartment_scraper(html)
   end
+  binding.pry
 
 #get_info
   #run get info method
@@ -19,8 +29,8 @@ def run
 #selection
   #return site of selected post
 
-#clear_search
-  #clear all including html
+
 
 #create_new_search
   #
+end
