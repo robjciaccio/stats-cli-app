@@ -23,19 +23,5 @@ class Scraper
         i+=1
       end
     end
-    binding.pry
-
-
-
-
-  def self.get_zip_and_max
-    puts "What Zip code are you looking for an apartment in?"
-    zip_code = gets.chomp
-    puts "what is your max price?"
-    max_price = gets.chomp
-    html = "https://newyork.craigslist.org/search/aap?postal=#{zip_code}&max_price=#{max_price}&availabilityMode=0"
-    html.to_s
-    html
-  end
 
 end
