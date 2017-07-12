@@ -10,6 +10,8 @@ class CLI
     current.get_info
     html = current.get_html("#{current.max_price}", "#{current.zip_code}", "#{current.bedrooms}")
     Scraper.apartment_scraper("#{html}")
+    choice = current.selection
+    binding.pry
   end
 
   def self.new_search

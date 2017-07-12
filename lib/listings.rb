@@ -30,4 +30,13 @@ attr_accessor :max_price, :zip_code, :bedrooms, :new_html, :name
     @bedrooms.clear
   end
 
+  def selection
+    puts "Please make a selection: "
+    choice = gets.chomp
+    choice.to_i
+    choice
+  end
+
+  def display_choice(num)
+    
 end
