@@ -3,7 +3,6 @@ require 'pry'
 require "./lib/listings.rb"
 require "./lib/scraper.rb"
 
-
 class CLI
 
   def self.run
@@ -14,17 +13,11 @@ class CLI
     max_price = gets.chomp
     puts "Please enter the minimum amount of bedrooms: "
     bedrooms = gets.chomp
-    current = Listing.new(max_price, zip_code, bedrooms)
-    html = Listing.get_html
-    Scraper.apartment_scraper(html)
+    current = Listing.new("#{max_price}", "#{zip_code}", "#{bedrooms}")
+    binding.pry
+    html = current.get_html
+    Scraper.apartment_scraper("#{html}")
   end
-
-
-#get_info
-  #run get info method
-
-#html method
-  #apply zip/rooms/price to html
 
 #selection
   #return site of selected post
@@ -32,10 +25,4 @@ class CLI
     Listing.reset_all
     run
   end
-
-binding.pry
-
-
-#create_new_search
-  #
 end

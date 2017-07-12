@@ -1,7 +1,7 @@
 
-
+require "pry"
 class Listing
-attr_accessor :max_price, :zip_code, :bedrooms
+attr_accessor :max_price, :zip_code, :bedrooms, :new_html
 
   def initialize(max_price = "2500", zip_code = "11215", bedrooms = "1")
     @max_price = max_price
@@ -9,9 +9,9 @@ attr_accessor :max_price, :zip_code, :bedrooms
     @bedrooms = bedrooms
   end
 
-  def self.get_html
-    new_html = "https://newyork.craigslist.org/search/aap?postal=#{@zip_code}&max_price=#{@max_price}&min_bedrooms=#{@bedrooms}&availabilityMode=0"
-    new_html
+  def self.get_html(max_price, zip_code, bedrooms)
+    @new_html = "https://newyork.craigslist.org/search/aap?postal=" + "#{zip_code}" + "&max_price=" + "#{max_price}" + "&min_bedrooms=" + "#{bedrooms}" + "&availabilityMode=0"
+    @new_html
   end
 
   def self.get_info
