@@ -3,9 +3,6 @@ require 'pry'
 require "./lib/listings.rb"
 require "./lib/scraper.rb"
 
-
-
-
 class CLI
 
   def self.run
@@ -15,10 +12,14 @@ class CLI
     Scraper.apartment_scraper("#{html}")
   end
 
-#selection
-  #return site of selected post
   def self.new_search
-    Listing.reset_all
-    run
+    puts "Would you like another search? Y/N:"
+    answer = gets.chomp
+    if answer == "y" || if answer == "Y"
+      CLI.run
+    else
+
+    end
   end
+end
 end
