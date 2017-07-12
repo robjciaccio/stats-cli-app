@@ -1,11 +1,11 @@
 
 require "pry"
 
-
 class Listing
-attr_accessor :max_price, :zip_code, :bedrooms, :new_html, :name
+attr_accessor :max_price, :zip_code, :bedrooms, :new_html
+attr_reader :name #name should not be able to be changed
 
-  def initialize(name)
+  def initialize(name) #new listings will be initialized with name
     @name = name
   end
 

@@ -22,7 +22,6 @@ class CLI
     if answer == "y" || if answer == "Y"
       CLI.run
     else
-
     end
   end
 end
